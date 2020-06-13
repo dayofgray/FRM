@@ -4,14 +4,17 @@
 []  Step 4: Implement 2 methods of SSO (Google and Github most likely)
 []  Step 5: Model requirements
         -1 has many
-
+                User has many events
+                User has many friends through User Friends
         -1 belongs_to
+                Events belong to Users
+                Events belong to Friends (maybe new join table events <> attendees <> friend)
         -2 has_many :through
-            Events have many users and friends
+            User has many acquantainces (friends table) through Events
                 -location
                 -date/time
                 -title
-            Userfriends
+            User has many friends through User Friends Userfriends
                 -join table many:many between Users and Friends
 []  Step 6: Nested resource
         -a nested new form that related to parent resource
