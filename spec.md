@@ -1,8 +1,5 @@
 [x] Step 1: Push to Github && Host on Heroku
-[]  Step 2: Implement welcome and home page with login options
-[]  Step 3: Implement Layout and basic css
-[]  Step 4: Implement 2 methods of SSO (Google and Github most likely)
-[]  Step 5: Model requirements
+[x] Step 2: Model requirements
         -1 has many
                 User has many events
                 User has many friends through User Friends
@@ -13,12 +10,15 @@
             User has many commented Events through Comments
             User has many friends through User Friends Userfriends
                 -join table many:many between Users and Friends
-[]  Step 6: Nested resource
+[x] Step 3: Validation at model level
+[]  Step 4: Implement welcome and home page with login options
+[]  Step 5: Implement Layout and basic css
+[]  Step 6: Implement 2 methods of SSO (Google and Github most likely)
+[]  Step 7: Nested resource
         -a nested new form that related to parent resource
                 -events will be nested under users being able to create a new event related to the logged in user
         -a nested index or show route
                 -we will be able to see all of the nested events under a user and an individual event page will be nested under users/:id/events/:event_id
-[]  Step 7: Validation at model level
 []  Step 8: Form validation with errors
         -fields with error class
 []  Step 9: Scope method
