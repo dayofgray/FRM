@@ -11,7 +11,7 @@
             User has many friends through User Friends Userfriends
                 -join table many:many between Users and Friends
 [x] Step 3: Validation at model level
-[]  Step 4: Implement welcome and home page with login options
+[x]  Step 4: Implement welcome and home page with login options
 []  Step 5: Implement Layout and basic css
 []  Step 6: Implement 2 methods of SSO (Google and Github most likely)
 []  Step 7: Nested resource
