@@ -12,7 +12,7 @@
                 -join table many:many between Users and Friends
 [x] Step 3: Validation at model level
 [x]  Step 4: Implement welcome and home page with login options
-[]  Step 5: Implement 2 methods of SSO (Google and Github most likely)
+[x]  Step 5: Implement Google SSO
 []  Step 6: Nested resource
         -a nested new form that related to parent resource
                 -events will be nested under users being able to create a new event related to the logged in user
