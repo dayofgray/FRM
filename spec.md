@@ -12,21 +12,21 @@
                 -join table many:many between Users and Friends
 [x] Step 3: Validation at model level
 [x]  Step 4: Implement welcome and home page with login options
-[]  Step 5: Implement Layout and basic css
-[]  Step 6: Implement 2 methods of SSO (Google and Github most likely)
-[]  Step 7: Nested resource
+[]  Step 5: Implement 2 methods of SSO (Google and Github most likely)
+[]  Step 6: Nested resource
         -a nested new form that related to parent resource
                 -events will be nested under users being able to create a new event related to the logged in user
         -a nested index or show route
                 -we will be able to see all of the nested events under a user and an individual event page will be nested under users/:id/events/:event_id
-[]  Step 8: Form validation with errors
+[]  Step 7: Form validation with errors
         -fields with error class
-[]  Step 9: Scope method
+[]  Step 8: Scope method
         -scoping friends of users to ones with birthdays in the next month
-[]  Step 10: DRY
+[]  Step 9: DRY
         -Logic present in controllers should be encapsulated as methods in the models.
         -Views should use helper methods and partials when appropriate.
         -Follow patterns in the Rails Style Guide and the Ruby Style Guide.
+[]  Step 10: Implement Layout and basic css
 
 V2 Next Steps:
 [] Update with specs
