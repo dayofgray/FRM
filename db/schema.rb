@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_014753) do
+ActiveRecord::Schema.define(version: 2020_06_14_135834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.text "content"
+    t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "location"
+    t.string "title"
+    t.datetime "event_time"
+    t.bigint "user_id", null: false
+    t.bigint "friend_id", null: false
+    t.index ["friend_id"], name: "index_events_on_friend_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "email"
+  end
+
+  create_table "user_friends", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "friend_id", null: false
+    t.index ["friend_id"], name: "index_user_friends_on_friend_id"
+    t.index ["user_id"], name: "index_user_friends_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -25,4 +57,10 @@ ActiveRecord::Schema.define(version: 2020_06_11_014753) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "comments", "events"
+  add_foreign_key "comments", "users"
+  add_foreign_key "events", "friends"
+  add_foreign_key "events", "users"
+  add_foreign_key "user_friends", "friends"
+  add_foreign_key "user_friends", "users"
 end
