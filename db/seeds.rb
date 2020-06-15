@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user1 = User.create(first_name:"test", last_name: "user1", email:"testemailocal@gasdsa.com", password: "localtesf12w31231paswsword")
-user2 = User.create(first_name:"second", last_name: "last2", email:"seconduser@gasdsa.com", password: "locdsfsdafsdfs1paswsword")
+user1 = User.create(first_name:"test", last_name: "user1", email:"testemailocal@gasdsa.com", password: SecureRandom.urlsafe_base64 )
+user2 = User.create(first_name:"second", last_name: "last2", email:"seconduser@gasdsa.com", password: SecureRandom.urlsafe_base64 )
 
-friend1 = Friend.create(first_name:"friend1", last_name: "last1", email:"firstfriendilocal@gasdsa.com", phone:"123-456-7890")
-friend2 = Friend.create(first_name:"friend2", last_name: "last2", email:"secondfriendilocal@gasdsa.com", phone:"555-456-7890")
+friend1 = Friend.create(first_name:"friend1", last_name: "last1", email:"firstfriendilocal@gasdsa.com", phone:"123-456-7890", birthday_month: "January", birthday_day: "23")
+friend2 = Friend.create(first_name:"friend2", last_name: "last2", email:"secondfriendilocal@gasdsa.com", phone:"555-456-7890", birthday_month: "August", birthday_day: "10")
 
 event1 = user1.events.build(location:"test location1", title:"first test event", event_time: DateTime.now + 3)
 event1.friend = friend1
