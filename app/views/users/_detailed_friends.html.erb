@@ -1,0 +1,20 @@
+<h2> Friends </h2>
+<ul>
+<% friends.each do |friend| %>
+    <li> <%= friend.full_name %> 
+        <ul>
+            <li> Phone: <%= friend.phone %> </li>
+            <li> Email: <%= friend.email %> </li>
+            <li> Birthday: <%= friend.birthday %> </li>
+        </ul>
+    </li>
+<% end %>
+</ul> <br> <br>
+
+<h2> Upcoming Birthdays </h2>
+<ul>
+<% user.upcoming_birthdays.each do |friend| %>
+    <li> <%= friend.full_name + " - " + friend.birthday %> </li>
+<% end %>
+</ul>
+    

@@ -25,4 +25,8 @@ class Friend < ApplicationRecord
         first_name + " " + last_name
     end
 
+    def birthday
+        "#{birthday_month} #{birthday_day}"
+    end
+
 end

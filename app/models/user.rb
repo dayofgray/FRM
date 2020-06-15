@@ -23,4 +23,8 @@ class User < ApplicationRecord
           user.password = SecureRandom.urlsafe_base64
         end
       end
+
+      def upcoming_birthdays
+        self.friends.where(birthday_month: Date::MONTHNAMES[Date.today.month])
+      end
 end
