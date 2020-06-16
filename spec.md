@@ -20,7 +20,7 @@
                 -we will be able to see all of the nested events under a user and an individual event page will be nested under users/:id/events/:event_id
 []  Step 7: Form validation with errors
         -fields with error class
-[]  Step 8: Scope method
+[x]  Step 8: Scope method
         -scoping friends of users to ones with birthdays in the next month
 []  Step 9: DRY
         -Logic present in controllers should be encapsulated as methods in the models.

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    before_action :authenticate_user!
     helper_method [:current_user, :login, :logged_in?]
 
     private
@@ -13,5 +14,11 @@ class ApplicationController < ActionController::Base
 
     def logged_in?
         !current_user.nil?
+    end
+
+    def authenticate_user!
+        if current_user.nil?
+            redirect_to root_path, notice: "You must be logged in to utilize the FRM"
+        end
     end
 end
