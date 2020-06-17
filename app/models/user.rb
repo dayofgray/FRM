@@ -10,6 +10,8 @@ class User < ApplicationRecord
         record.errors.add(attr, "#{attr} can't be blank") if value.blank?
     end
 
+    validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, message: "is invalid"
+
     def full_name
         first_name + " " + last_name
     end
