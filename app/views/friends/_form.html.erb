@@ -1,0 +1,21 @@
+<%= form_with model: friend do |f| %>
+<%= f.label :first_name, "First Name:" %>
+<%= f.text_field :first_name %>
+
+<%= f.label :last_name, "Last Name:" %>
+<%= f.text_field :last_name %> <br> <br>
+
+<%= f.label :email, "Email:" %>
+<%= f.text_field :email %> <br> <br>
+
+<%= f.label :phone, "Phone:" %>
+<%= f.text_field :phone %> <br> <br>
+
+<%= f.label :birthday_month, "Birthday Month:" %>
+<%= f.collection_select :birthday_month, Date::MONTHNAMES[1..12], :strip, :strip %> <br> <br>
+
+<%= f.label :birthday_day, "Birthday Day:" %>
+<%= f.collection_select :birthday_day, [*1..31], :to_s, :to_s %> <br> <br>
+
+<%= submit_tag %>
+<% end %>

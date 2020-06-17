@@ -1,0 +1,17 @@
+<h1> <%= @friend.full_name %></h1> 
+
+<div>
+Birthday Info: <%= @friend.birthday %>
+</div>
+<br>
+
+<div>
+<h2> Contact Info </h2>
+<ul>
+    <li> Phone: <%= @friend.phone %> </li>
+    <li> Email: <%= @friend.email %> </li>
+</ul>
+</div>
+
+<%= button_to 'Edit', edit_friend_path(@friend), method: "get" %>
+<%= button_to 'Delete', friend_path(@friend), method: "delete" %>

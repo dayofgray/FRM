@@ -1,7 +1,7 @@
 <h2> Friends </h2>
 <ul>
 <% friends.each do |friend| %>
-    <li> <%= friend.full_name %> 
+    <li> <%= link_to friend.full_name, friend_path(friend)  %> 
         <ul>
             <li> Phone: <%= friend.phone %> </li>
             <li> Email: <%= friend.email %> </li>

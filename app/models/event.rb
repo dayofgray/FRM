@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
     belongs_to :user
     belongs_to :friend
-    has_many :comments
+    has_many :comments, :dependent => :delete_all
     has_many :commenting_users, through: :comments, source: :user
 
     validates_presence_of :title, :location, :event_time
