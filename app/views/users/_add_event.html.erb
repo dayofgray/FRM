@@ -1,5 +1,5 @@
 <h2> Add an Event </h2>
-<%= form_with model: @event, url: "#{@event.user_id}/events", method: "post", local: true do |f|%>
+<%= form_with model: @event, url: user_events_path(@user), method: "post", local: true do |f|%>
 <% if @event.errors.any? %>
         <div id="error_explanation">
           <h4>

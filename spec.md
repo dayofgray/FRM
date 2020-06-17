@@ -13,7 +13,7 @@
 [x] Step 3: Validation at model level
 [x]  Step 4: Implement welcome and home page with login options
 [x]  Step 5: Implement Google SSO
-[]  Step 6: Nested resource
+[x]  Step 6: Nested resource
         -a nested new form that related to parent resource
                 -events will be nested under users being able to create a new event related to the logged in user
         -a nested index or show route
@@ -26,10 +26,10 @@
         -Logic present in controllers should be encapsulated as methods in the models.
         -Views should use helper methods and partials when appropriate.
         -Follow patterns in the Rails Style Guide and the Ruby Style Guide.
-[]  Step 10: Implement Layout and basic css
 
 V2 Next Steps:
 [] Update with specs
 [] Update to allow events to have multiple friends attend
 [] Implement Devise Login
 [] Implement Active Admin
+[] Implement additional CSS

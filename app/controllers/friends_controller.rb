@@ -7,6 +7,11 @@ class FriendsController < ApplicationController
     
     def create
         @friend = Friend.new(friend_params)
+        if @friend.save
+            @uf = UserFriend.create(friend_id: @friend.id, user_id: current_user.id)
+            redirect_to user_path(current_user)
+        end
+        render :new
     end
 
     def show
@@ -20,10 +25,13 @@ class FriendsController < ApplicationController
     def update
         @friend = Friend.find_by(id: params[:id])
         if current_user.friends.include?(@friend)
-            @friend.update(friend_params)
+         if @friend.update(friend_params)
             redirect_to friend_path(@friend)
+         else
+            render :edit
+         end
         else
-            render :edit, notice: "Cannot update"
+            render :edit
         end
     end
 

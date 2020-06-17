@@ -1,1 +1,7 @@
 <h1> <%= @event.title %> </h1>
+<ul>
+        <li>Friend: <%= link_to @event.friend.full_name, friend_path(@event.friend) %></li>
+        <li>Location: <%= @event.title %></li>
+        <li>Event Time: <%= @event.readable_time %></li>
+
+    </ul>

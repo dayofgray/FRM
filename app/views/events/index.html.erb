@@ -1,1 +1,15 @@
-all of the events
+<h1> Events </h1>
+
+<ul>
+<% @user.events.each do |event|%>
+<li> <%= link_to event.title, user_event_path(@user,event) %>
+    <ul>
+        <li>Friend: <%= event.friend.full_name %></li>
+        <li>Location: <%= event.title %></li>
+        <li>Event Time: <%= event.readable_time %></li>
+
+    </ul>
+</li>
+
+<%end %>
+</ul>

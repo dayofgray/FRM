@@ -1,4 +1,5 @@
 <h2> Friends </h2>
+<%= button_to "Add a Friend", new_friend_path, method: "get" %>
 <ul>
 <% friends.each do |friend| %>
     <li> <%= link_to friend.full_name, friend_path(friend)  %> 
