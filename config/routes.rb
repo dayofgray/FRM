@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users, :except => [:new, :create] do
-    resources :events, :only => [:index, :show, :create]
+    resources :events, :except => [:new]
   end
 
   resources :friends, :except => [:index]

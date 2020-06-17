@@ -10,8 +10,9 @@ class FriendsController < ApplicationController
         if @friend.save
             @uf = UserFriend.create(friend_id: @friend.id, user_id: current_user.id)
             redirect_to user_path(current_user)
+        else
+            render :new
         end
-        render :new
     end
 
     def show

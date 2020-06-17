@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
 
+    def new
+        @event = current_user.events.build
+    end
+
     def create
         @event = Event.new(event_params)
         if @event.save
@@ -9,6 +13,27 @@ class EventsController < ApplicationController
             render '/users/show'
         end
 
+    end
+
+    def edit
+        @event = Event.find(params[:id])
+        @user = @event.user
+        if @user != current_user
+            redirect_to user_path(current_user), notice: "You cannot view details of events of another user"
+        end
+    end
+
+    def update
+        @event = Event.find_by(id: params[:id])
+        if current_user.events.include?(@event)
+         if @event.update(event_params)
+            redirect_to user_event_path(@event.user, @event)
+         else
+            render :edit
+         end
+        else
+            render :edit
+        end
     end
 
 
@@ -27,6 +52,12 @@ class EventsController < ApplicationController
         else
             redirect_to user_path(@user), notice: "You cannot view events of another user"
         end
+    end
+
+    def destroy
+        @event = Event.find(params[:id])
+        @event.destroy if @event.user = current_user
+        redirect_to user_path(current_user)
     end
 
     private
