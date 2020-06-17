@@ -35,10 +35,6 @@ class FriendsController < ApplicationController
         end
     end
 
-    def index
-        @friends = current_user.friends
-    end
-
     def destroy
         @friend = Friend.find(params[:id])
         if current_user.friends.include?(@friend)
