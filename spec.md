@@ -18,7 +18,7 @@
                 -events will be nested under users being able to create a new event related to the logged in user
         -a nested index or show route
                 -we will be able to see all of the nested events under a user and an individual event page will be nested under users/:id/events/:event_id
-[]  Step 7: Form validation with errors
+[x]  Step 7: Form validation with errors
         -fields with error class
 [x]  Step 8: Scope method
         -scoping friends of users to ones with birthdays in the next month
