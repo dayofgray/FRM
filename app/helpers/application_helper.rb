@@ -8,9 +8,11 @@ module ApplicationHelper
         end
     end
 
-    def my_user_page
+    def home_buttons
         if logged_in?
-            button_to "My User Page", user_path(current_user), method: "get"
+            button_to("My User Page", user_path(current_user), method: "get") +
+            raw("<br>") +
+            button_to("My Events", user_events_path(current_user), method: "get")
         end
     end
 end

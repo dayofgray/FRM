@@ -1,0 +1,25 @@
+ <% if logged_in? %>
+ <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+  <form class="form-inline">
+    <a class="btn btn-outline-primary" type="button" href="/users/<%=current_user.id%>">My User</a>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-primary" type="button" href="/friends">My Friends</a>
+    </div>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-primary" type="button" href="/users/<%=current_user.id%>/events">My Events</a>
+    </div>
+  </form>
+</nav>
+
+<% else %>
+ <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+  <form class="form-inline">
+    <a class="btn btn-outline-primary" type="button" href="/signup">Signup</a>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-primary" type="button" href="/login">Login</a>
+    </div>
+  </form>
+</nav>
+<%end %>
