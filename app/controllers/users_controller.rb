@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authenticate_user!, only: [:new, :create]
+    before_action :find_user, only: [:show]
 
     def new
         @user = User.new
@@ -16,7 +17,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
         @event = @user.events.build
     end
 
@@ -30,5 +30,9 @@ class UsersController < ApplicationController
             :password,
             :password_confirmation
         )
+    end
+
+    def find_user
+        @user = User.find(params[:id])
     end
 end

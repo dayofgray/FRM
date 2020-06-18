@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+    before_action :find_event, only: [:edit, :update, :show, :destroy]
 
     def new
         @event = current_user.events.build
@@ -16,7 +17,6 @@ class EventsController < ApplicationController
     end
 
     def edit
-        @event = Event.find(params[:id])
         @user = @event.user
         if @user != current_user
             redirect_to user_path(current_user), notice: "You cannot view details of events of another user"
@@ -24,7 +24,6 @@ class EventsController < ApplicationController
     end
 
     def update
-        @event = Event.find_by(id: params[:id])
         if current_user.events.include?(@event)
          if @event.update(event_params)
             redirect_to user_event_path(@event.user, @event)
@@ -38,7 +37,6 @@ class EventsController < ApplicationController
 
 
     def show
-        @event = Event.find(params[:id])
         if @event.user != current_user
             redirect_to user_path(current_user), notice: "You cannot view details of events of another user"
         end
@@ -55,7 +53,6 @@ class EventsController < ApplicationController
     end
 
     def destroy
-        @event = Event.find(params[:id])
         @event.destroy if @event.user = current_user
         redirect_to user_path(current_user)
     end
@@ -70,6 +67,10 @@ class EventsController < ApplicationController
             :user_id,
             :friend_id
         )
+    end
+
+    def find_event
+        @event = Event.find(params[:id])
     end
 
 end

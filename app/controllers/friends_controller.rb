@@ -1,4 +1,5 @@
 class FriendsController < ApplicationController
+    before_action :find_friend, only: [:edit, :update, :show, :destroy]
 
 
     def new
@@ -16,15 +17,12 @@ class FriendsController < ApplicationController
     end
 
     def show
-        @friend = Friend.find(params[:id])
     end
 
     def edit
-        @friend = Friend.find(params[:id])
     end
 
     def update
-        @friend = Friend.find_by(id: params[:id])
         if current_user.friends.include?(@friend)
          if @friend.update(friend_params)
             redirect_to friend_path(@friend)
@@ -37,7 +35,6 @@ class FriendsController < ApplicationController
     end
 
     def destroy
-        @friend = Friend.find(params[:id])
         if current_user.friends.include?(@friend)
             @friend.destroy
             redirect_to user_path(current_user)
@@ -57,6 +54,10 @@ class FriendsController < ApplicationController
             :birthday_month,
             :birthday_day
         )
+    end
+
+    def find_friend
+        @friend = Friend.find(params[:id])
     end
 
 end
