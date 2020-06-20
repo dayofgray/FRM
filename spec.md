@@ -22,7 +22,7 @@
         -fields with error class
 [x]  Step 8: Scope method
         -scoping friends of users to ones with birthdays in the next month
-[]  Step 9: DRY
+[x]  Step 9: DRY
         -Logic present in controllers should be encapsulated as methods in the models.
         -Views should use helper methods and partials when appropriate.
         -Follow patterns in the Rails Style Guide and the Ruby Style Guide.
