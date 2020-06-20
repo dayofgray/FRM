@@ -1,5 +1,12 @@
 <h1> <%= @user.full_name %> </h1>
 
+
+<%= button_to "Edit User", edit_user_path(@user), method: "get", class: "account-buttons" %>
+
+<%= button_to "Delete Account", user_path(@user), method: "delete", class: "account-buttons" %>
+
+<br>
+
 <%= display_friends(@user) %>
 
 <%= render "users/add_event"%>
