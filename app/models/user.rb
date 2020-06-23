@@ -25,7 +25,8 @@ class User < ApplicationRecord
         end
       end
 
+      
       def upcoming_birthdays
-        self.friends.where(birthday_month: Date::MONTHNAMES[Date.today.month])
+        self.friends.birthdays_future
       end
 end
